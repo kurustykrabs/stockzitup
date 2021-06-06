@@ -1,0 +1,27 @@
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <% if user_signed_in? %>
+      <%= link_to('StockItUp!', root_path) %>
+      <%= link_to('Edit registration', edit_user_registration_path) %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% else %>
+      <%= link_to('Register', new_user_registration_path)  %>
+      <%= link_to('Login', new_user_session_path)  %>
+      <% end %>
+    </a>
+  </div>
+</nav>
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <% if current_user.superadmin_role? %>
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create product', new_product_path) %></button>
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button>
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show products', products_path) %></button>
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show categories', categories_path) %></button>
+      <% end %>
+    </a>
+  </div>
+</nav>
