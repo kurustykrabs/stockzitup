@@ -30,9 +30,9 @@
         <td><%= product.price %></td>
         <td><%= product.category.heading %></td>
 
-        <%= form_with model: @list_product do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, value: 1, min: 1 %>
+        <%# <%= form_with model: @list_product do |f| %> %>
+        <%# <%= f.hidden_field :product_id, value: product.id %> %>
+        <%# <%= f.number_field :quantity, value: 1, min: 1 %> %>
         <td><%= link_to "Add to my list" %></td>
 
         <td><%= link_to "Update product", edit_product_path(product) %></td>
