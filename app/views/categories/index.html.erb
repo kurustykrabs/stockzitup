@@ -1,0 +1,32 @@
+<% if current_user.superadmin_role? %>
+
+<p>List of categories</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Heading</th>
+      <th>Body</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.heading, category_path(category) %></td>
+        <td><%= category.body %></td>
+        <td><%= link_to "Update category", edit_category_path(category) %></td>
+        <td><%= link_to "Delete category", category_path(category), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    <%= link_to "Back to home", root_path %>
+
+<% else %>
+
+<p>Visible only for superadmin</p>
+
+<% end %>

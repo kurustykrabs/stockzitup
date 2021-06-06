@@ -1,0 +1,23 @@
+<h1>Enter a product:</h1>
+
+  <%= form_for @product do |f| %>
+
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+
+    <%= f.label :category %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :heading), { :prompt => "--Select one--" } %>
+
+  <%= f.submit "Update product" %>
+<% end %>
+
+<%= link_to "Back to show product", products_path %>

@@ -1,0 +1,19 @@
+<% if current_user.superadmin_role? %>
+
+<h1>Enter a category</h1>
+
+<%= form_for Category.new do |f| %>
+  <%= f.text_field :heading, placeholder:'Header' %>
+  <%= f.text_field :body, placeholder:'Description of category' %>
+
+  <%= f.submit 'Create category' %>
+<% end %>
+
+<%= link_to 'Back to home', root_path %>
+<%= link_to 'Show categories', categories_path %>
+
+<% else %>
+
+<p>Visible only for superadmin</p>
+
+<% end %>

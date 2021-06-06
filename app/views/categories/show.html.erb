@@ -1,0 +1,32 @@
+<h>List of product for <%= @category.heading %></h>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Product name</th>
+      <th>Description</th>
+      <th>Price per unit (RM)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @category.products.each do |product| %>
+    <tr>
+    <td><% if product.images.attached? %>
+        <% product.images.each do |image| %>
+          <%= image_tag image, width: 100 %>
+        <% end %>
+          <% else %>
+          Unavailable
+        <% end %></td>
+
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.price %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<br>
+<%= link_to "Back to home", root_path %>

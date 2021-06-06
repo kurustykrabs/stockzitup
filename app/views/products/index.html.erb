@@ -1,0 +1,50 @@
+<% if current_user.superadmin_role? %>
+
+<p>List of products</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price per unit (RM)</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><% if product.images.attached? %>
+              <% product.images.each do |image| %>
+                <%= image_tag image, width: 100 %>
+              <% end %>
+                <% else %>
+                Unavailable
+        <% end %></td>
+
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= product.category.heading %></td>
+
+        <%= form_with model: @list_product do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, value: 1, min: 1 %>
+        <td><%= link_to "Add to my list" %></td>
+
+        <td><%= link_to "Update product", edit_product_path(product) %></td>
+        <td><%= link_to "Delete product", product_path(product), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    <%= link_to "Back to home", root_path %>
+
+<% else %>
+
+<p>Visible only for superadmin</p>
+
+<% end %>
