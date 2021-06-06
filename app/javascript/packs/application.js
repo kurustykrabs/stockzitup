@@ -8,8 +8,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../stylesheets/application"
+import "bootstrap";
+import "./src/application.scss"
 
 global.toastr = require("toastr")
+global.$ = jQuery
 
 Rails.start()
 Turbolinks.start()
