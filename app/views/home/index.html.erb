@@ -5,13 +5,13 @@
   <br>
   <%# <%= link_to('Create my grocery list', new_grocery_list_path) %> %>
   <br>
-  <%# if current_user.superadmin_role? %>
-  <%#= link_to('Create product', new_product_path) %>
-  <%#= link_to('Create category', new_category_path) %>
+  <% if current_user.superadmin_role? %>
+  <%= link_to('Create product', new_product_path) %>
+  <%= link_to('Create category', new_category_path) %>
   <br>
-  <%#= link_to('Show products', products_path) %>
-  <%#= link_to('Show categories', categories_path) %>
-  <%# end %>
+  <%= link_to('Show products', products_path) %>
+  <%= link_to('Show categories', categories_path) %>
+  <% end %>
   <br>
   <%# <%= link_to('Show my grocery list', grocery_lists_path) %> %>
   <br>

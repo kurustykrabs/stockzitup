@@ -1,5 +1,3 @@
-<% if current_user.superadmin_role? %>
-
 <p>List of categories</p>
 
 <table>
@@ -17,16 +15,19 @@
       <tr>
         <td><%= link_to category.heading, category_path(category) %></td>
         <td><%= category.body %></td>
+
+        <% if current_user.superadmin_role? %>
         <td><%= link_to "Update category", edit_category_path(category) %></td>
         <td><%= link_to "Delete category", category_path(category), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
     <%= link_to "Back to home", root_path %>
 
-<% else %>
+<%# else %>
 
-<p>Visible only for superadmin</p>
+<!-- <p>Visible only for superadmin</p> -->
 
-<% end %>
+<%# end %>

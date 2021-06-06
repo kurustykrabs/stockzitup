@@ -16,9 +16,12 @@
 <nav class="navbar fixed-bottom navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand">
-      <% if current_user.superadmin_role? %>
+
+      <% if current_user && current_user.superadmin_role? %>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create product', new_product_path) %></button>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button>
+      <% end %>
+      <% if user_signed_in? %>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show products', products_path) %></button>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show categories', categories_path) %></button>
       <% end %>
