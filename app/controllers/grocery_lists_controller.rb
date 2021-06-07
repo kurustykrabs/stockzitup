@@ -1,6 +1,6 @@
 class GroceryListsController < ApplicationController
   def index
-    @grocery_lists = GroceryList.all
+    @grocery_lists = current_user.grocery_lists
   end
 
   def show

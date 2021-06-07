@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ .btn-group button {
+   display: inline;
+   background-color: #FFFFFF; /* background */
+   border: 1px solid gray; /* border */
+   border-radius: 5px;
+   color: #202020; /* text */
+   position: relative;
+   padding: 5px 15px; /* Some padding */
+   cursor: pointer; /* Pointer/hand icon */
+   float: left; /* Float the buttons side by side */
+ }
