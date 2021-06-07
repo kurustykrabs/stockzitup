@@ -4,6 +4,8 @@ class GroceryListsController < ApplicationController
   end
 
   def show
+    @grocery_list = GroceryList.find(params[:id])
+    @product = @grocery_list.products
   end
 
   def new

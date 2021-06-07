@@ -33,7 +33,8 @@
         <td><%= f.number_field :quantity, value: 1, min: 1 %></td>
         <td><%= f.label :grocery_list %></td>
         <td><%= f.select :grocery_list_id, options_from_collection_for_select(GroceryList.all, :id, :name), { :prompt => "--Select one--"} %></td>
-        <td><%= link_to "Add to my list" %></td>
+
+        <td><%= link_to "Add to my list", grocery_lists_path %></td>
 
         <% if current_user.superadmin_role? %>
         <td><%= link_to "Update product", edit_product_path(product) %></td>
