@@ -28,9 +28,11 @@
         <td><%= product.price %></td>
         <td><%= product.category.heading %></td>
 
-        <%# <%= form_with model: @list_product do |f| %> %>
-        <%# <%= f.hidden_field :product_id, value: product.id %> %>
-        <%# <%= f.number_field :quantity, value: 1, min: 1 %> %>
+        <td><%= form_with model: @grocery_list_product do |f| %></td>
+        <td><%= f.hidden_field :product_id, value: product.id %></td>
+        <td><%= f.number_field :quantity, value: 1, min: 1 %></td>
+        <td><%= f.label :grocery_list %></td>
+        <td><%= f.select :grocery_list_id, options_from_collection_for_select(GroceryList.all, :id, :name), { :prompt => "--Select one--"} %></td>
         <td><%= link_to "Add to my list" %></td>
 
         <% if current_user.superadmin_role? %>
@@ -38,6 +40,7 @@
         <td><%= link_to "Delete product", product_path(product), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
         <% end %>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
