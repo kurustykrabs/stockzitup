@@ -4,6 +4,13 @@ class GroceryListProductsController < ApplicationController
     @grocery_list_product = GroceryListProduct.all
   end
 
+  def show
+  end
+
+  def new
+    @grocery_list_product = GroceryListProduct.new
+  end
+
   def create
     @grocery_list_product = @grocery_list.grocery_list_products.new(grocery_list_params)
     @grocery_list.save

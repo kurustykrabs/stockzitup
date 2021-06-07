@@ -1,6 +1,6 @@
 class GroceryListsController < ApplicationController
   def index
-    @grocery_lists = current_user.grocery_lists
+    @grocery_lists = GroceryList.all
   end
 
   def show
@@ -14,6 +14,7 @@ class GroceryListsController < ApplicationController
 
   def create
     @grocery_list = current_user.grocery_lists.build(grocery_list_params)
+    # @grocery_list.product = Product.find(params[:grocery_list][:product_id])
     if @grocery_list.save
       redirect_to grocery_lists_path, notice: "Created successfully"
     else
@@ -43,7 +44,7 @@ class GroceryListsController < ApplicationController
 
   private
   def grocery_list_params
-    params.require(:grocery_list).permit(:name, :date)
+    params.require(:grocery_list).permit(:name, :date, :product_id, :quantity, :category_id)
   end
 
 end
