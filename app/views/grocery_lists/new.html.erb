@@ -1,0 +1,20 @@
+<h1>Make your grocery list</h1>
+
+<%= form_for @grocery_list do |f| %>
+  <% if @grocery_list .errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(@grocery_list.errors.count, "error") %> prohibited this grocery list from being saved:</h2>
+    <ul>
+      <% @grocery_list.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.text_field :name, placeholder:'Name of your grocery list' %>
+  <%= f.date_field :date %>
+  <%= f.submit 'Create list' %>
+<% end %>
+
+<%= link_to 'Back to home', root_path %>
+<%= link_to 'Show grocery list', grocery_lists_path %>

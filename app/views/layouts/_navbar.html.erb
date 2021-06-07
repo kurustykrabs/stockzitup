@@ -22,6 +22,9 @@
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button>
       <% end %>
       <% if user_signed_in? %>
+      <button class="btn btn-outline-success me-2 type="button"><%= link_to('Create my grocery list', new_grocery_list_path) %></button>
+      <button class="btn btn-outline-success me-2 type="button"><%= link_to('Show my grocery list', grocery_lists_path) %></button>
+
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show products', products_path) %></button>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Show categories', categories_path) %></button>
       <% end %>

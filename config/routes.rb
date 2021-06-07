@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :products
   resources :categories
+  resources :grocery_list_products
+  resources :grocery_lists
 
 end
