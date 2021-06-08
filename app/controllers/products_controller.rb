@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    @grocery_list_product = @product.grocery_list_products.build
   end
 
   def new
@@ -40,6 +41,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category_id, images:[])
+    params.require(:product).permit(:name, :description, :price, :category_id, :grocery_list_id, images:[])
   end
 end

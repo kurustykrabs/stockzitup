@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :grocery_lists
   resources :grocery_list_products
-
+  resources :ars
 end
