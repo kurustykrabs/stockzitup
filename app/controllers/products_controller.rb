@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    @grocery_list_product = @product.grocery_list_products.build
   end
 
   def new
