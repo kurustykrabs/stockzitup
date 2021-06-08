@@ -16,7 +16,7 @@ class GroceryListProductsController < ApplicationController
     @grocery_list.grocery_list_products.create(grocery_list_product_params)
     if @grocery_list.save
       # session[:grocery_list_id] = @grocery_list.id
-      redirect_to grocery_lists_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
+      redirect_to products_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
     end
   end
 

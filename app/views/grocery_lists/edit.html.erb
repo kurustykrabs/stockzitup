@@ -1,7 +1,7 @@
-<h1>Make your grocery list</h1>
+<h1>Edit your grocery list</h1>
 
-<%= form_for GroceryList.new do |f| %>
-  <% if @grocery_list .errors.any? %>
+<%= form_for @grocery_list do |f| %>
+  <% if @grocery_list.errors.any? %>
   <div class="errors">
     <h2><%= pluralize(@grocery_list.errors.count, "error") %> prohibited this grocery list from being saved:</h2>
     <ul>
@@ -16,5 +16,4 @@
   <%= f.submit 'Create list' %>
 <% end %>
 
-<%= link_to 'Back to home', root_path %>
 <%= link_to 'Show grocery list', grocery_lists_path %>

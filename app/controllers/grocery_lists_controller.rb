@@ -30,7 +30,7 @@ class GroceryListsController < ApplicationController
     @grocery_list = GroceryList.find(params[:id])
     @grocery_list.update(grocery_list_params)
     if @grocery_list.save
-      redirect_to grocery_list_path
+      redirect_to grocery_lists_path
     else
       render :edit, notice:'Edited successfully'
     end
