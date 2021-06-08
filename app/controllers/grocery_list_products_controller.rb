@@ -1,14 +1,16 @@
 class GroceryListProductsController < ApplicationController
 
-  def index
-    # @grocery_list_products = GroceryListProducts.all
-  end
+  # def index
+  #   @grocery_list_products = GroceryListProducts.all
+  # end
 
   def show
+    # @grocery_list_products = GroceryListProduct.find(params[:id])
+    # @grocery_list = @grocery_list_product.grocery_lists
+    @grocery_list_products = current_grocery_list.grocery_list_products
   end
 
   def new
-    # @grocery_list_product = GroceryListProduct.new
   end
 
   def create

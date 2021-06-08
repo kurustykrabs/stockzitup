@@ -1,1 +1,20 @@
 <p>Your list of products</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price per unit (RM)</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grocery_list_products.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.total %></td>
+            <% end %>
