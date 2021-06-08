@@ -7,7 +7,9 @@ class GroceryListProductsController < ApplicationController
   def show
     # @grocery_list_products = GroceryListProduct.find(params[:id])
     # @grocery_list = @grocery_list_product.grocery_lists
-    @grocery_list_products = current_grocery_list.grocery_list_products
+    gl = GroceryListProduct.find(params[:id]).grocery_list_id
+    @grocery_list_products = GroceryListProduct.where(grocery_list_id: gl)
+    # @grocery_list_products = current_grocery_list.grocery_list_products
   end
 
   def new
