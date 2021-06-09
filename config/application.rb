@@ -6,6 +6,11 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Prevent initializing the application before assets are precompiled (required for heroku)
+config.assets.initialize_on_precompile = false
+# Add Rails Admin assets (required)
+config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
+
 module Stockzitup
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
