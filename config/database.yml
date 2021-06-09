@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: stockzitup_production
-  # username: stockzitup
-  # password: <%= ENV['STOCKZITUP_DATABASE_PASSWORD'] %>
+  username: stockzitup
+  password: <%= ENV['STOCKZITUP_DATABASE_PASSWORD'] %>
