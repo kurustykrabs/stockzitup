@@ -38,7 +38,7 @@ gem 'aws-sdk-s3'
 
 gem 'money-rails', '~>1.12'
 
-gem 'rexml'
+# gem 'rexml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
