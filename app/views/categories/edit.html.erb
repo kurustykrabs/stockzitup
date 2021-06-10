@@ -1,6 +1,8 @@
 <h1>Edit a category</h1>
 
 <%= form_for @category do |f| %>
+  <%= f.label :images %>
+  <%= f.file_field :images, multiple: true %>
   <%= f.text_field :heading, placeholder:'Header' %>
   <%= f.text_field :body, placeholder:'Description of category' %>
 

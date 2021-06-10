@@ -3,6 +3,10 @@
 <h1>Enter a category</h1>
 
 <%= form_for Category.new do |f| %>
+
+  <%= f.label :images %>
+  <%= f.file_field :images, multiple: true %>
+  
   <%= f.text_field :heading, placeholder:'Header' %>
   <%= f.text_field :body, placeholder:'Description of category' %>
 

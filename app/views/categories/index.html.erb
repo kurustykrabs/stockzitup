@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Heading</th>
       <th>Body</th>
-      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,6 +13,14 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
+        <td><% if category.images.attached? %>
+              <% category.images.each do |image| %>
+                <%= image_tag image, width: 100 %>
+              <% end %>
+                <% else %>
+                Unavailable
+        <% end %></td>
+        
         <td><%= link_to category.heading, category_path(category) %></td>
         <td><%= category.body %></td>
 

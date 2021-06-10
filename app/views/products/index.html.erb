@@ -1,51 +1,71 @@
-<p>List of products</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<table>
-  <thead>
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+</style>
+</head>
+<body>
+
+<h2>List of products</h2>
+
+  <table>
     <tr>
       <th>Image</th>
       <th>Name</th>
       <th>Description</th>
       <th>Price per unit (RM)</th>
       <th>Category</th>
+      <th></th>
+      <th>Quantity</th>
+      <th>Grocery list</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    <tr>
+      <% @products.each do |product| %>
+        <tr>
+          <td><% if product.images.attached? %>
+                <% product.images.each do |image| %>
+                  <%= image_tag image, width: 100 %>
+                <% end %>
+                  <% else %>
+                  Unavailable
+          <% end %></td>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><% if product.images.attached? %>
-              <% product.images.each do |image| %>
-                <%= image_tag image, width: 100 %>
-              <% end %>
-                <% else %>
-                Unavailable
-        <% end %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td><%= product.category.heading %></td>
 
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.category.heading %></td>
+          <%= form_with model: product.grocery_list_products.build do |f| %>
+          <td><%#= form_with model: @grocery_list_product do |f| %></td>
+              <%= f.hidden_field :product_id, value: product.id %>
+          <td><%= f.number_field :quantity, value: 1, min: 1 %></td>
+          <td><%= f.select :grocery_list_id, options_from_collection_for_select(current_user.grocery_lists, :id, :name), { :prompt => "--Select one--"} %></td>
+          <td><%= f.submit "Add to my list" %></td>
 
-        <td><%= form_with model: product.grocery_list_products.build do |f| %></td>
-        <td><%#= form_with model: @grocery_list_product do |f| %></td>
-
-        <td><%= f.hidden_field :product_id, value: product.id %></td>
-        <td><%= f.number_field :quantity, value: 1, min: 1 %></td>
-        <td><%= f.label :grocery_list %></td>
-        <td><%= f.select :grocery_list_id, options_from_collection_for_select(GroceryList.all, :id, :name), { :prompt => "--Select one--"} %></td>
-        <td><%= f.submit "Add to my list" %></td>
-
-        <% if current_user.superadmin_role? %>
-        <td><%= link_to "Update product", edit_product_path(product) %></td>
-        <td><%= link_to "Delete product", product_path(product), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
-        <% end %>
-      </tr>
+          <% if current_user.superadmin_role? %>
+          <td><%= link_to image_tag('update icon.png', width: 30), edit_product_path(product) %></td>
+          <td><%= link_to image_tag("delete icon.png", width: 30), product_path(product), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+          <% end %>
+    </tr>
     <% end %>
     <% end %>
-  </tbody>
-</table>
+  </table>
+
+  </body>
+</html>
 
 <%# else %>
 

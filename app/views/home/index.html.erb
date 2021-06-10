@@ -1,7 +1,7 @@
 <!-- <div class="body"> -->
-      <%# Category.all.each do |category| %>
-        <%#= link_to category.heading, category_path(category) %>
-      <%# end %>
+      <% Category.all.each do |category| %>
+        <%= link_to category.heading, category_path(category) %>
+      <% end %>
 <!-- </div> -->
 
 <%# <%= link_to "Admin", dashboard %> %>
