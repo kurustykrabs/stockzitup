@@ -5,6 +5,10 @@ class GroceryListsController < ApplicationController
 
   def show
     @grocery_list = GroceryList.find(params[:id])
+    @grocery_list_product = @grocery_list.grocery_list_products
+    #method to show grocery_list_products here
+    # gl = GroceryListProduct.find(params[:id]).grocery_list_id
+    # @grocery_list_products = GroceryListProduct.where(grocery_list_id: gl)
   end
 
   def new
@@ -45,5 +49,4 @@ class GroceryListsController < ApplicationController
   def grocery_list_params
     params.require(:grocery_list).permit(:name, :date, :product_id, :quantity, :category_id)
   end
-
 end

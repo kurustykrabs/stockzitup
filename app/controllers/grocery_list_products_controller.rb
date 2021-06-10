@@ -4,13 +4,13 @@ class GroceryListProductsController < ApplicationController
   #   @grocery_list_products = GroceryListProducts.all
   # end
 
-  def show
+  # def show
     # @grocery_list_products = GroceryListProduct.find(params[:id])
     # @grocery_list = @grocery_list_product.grocery_lists
-    gl = GroceryListProduct.find(params[:id]).grocery_list_id
-    @grocery_list_products = GroceryListProduct.where(grocery_list_id: gl)
+    # gl = GroceryListProduct.find(params[:id]).grocery_list_id
+    # @grocery_list_products = GroceryListProduct.where(grocery_list_id: gl)
     # @grocery_list_products = current_grocery_list.grocery_list_products
-  end
+  # end
 
   def new
   end
