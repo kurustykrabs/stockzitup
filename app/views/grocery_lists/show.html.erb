@@ -6,7 +6,7 @@
       <th>Product</th>
       <th>Quantity</th>
       <th>Price per unit (RM)</th>
-      <th>Total</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,4 +18,13 @@
         <td><%= item.quantity %></td>
         <td><%= item.unit_price %></td>
         <td><%= item.total %></td>
-    <% end %>
+        <% end %>
+  </tbody>
+</table>
+<br>
+
+#display sum of (products * quantity) here
+<%# Your total list of products is: RM<%#= item.total %> %>
+
+<br>
+    <%= link_to "Back to grocery list", grocery_lists_path %>

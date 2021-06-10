@@ -18,8 +18,13 @@ class GroceryListProductsController < ApplicationController
   def create
     @grocery_list = GroceryList.find(params[:grocery_list_product][:grocery_list_id])
     @grocery_list.grocery_list_products.create(grocery_list_product_params)
-    if @grocery_list.save
-      # session[:grocery_list_id] = @grocery_list.id
+    #if product already exist in the grocery list, update
+    if
+      # product_id.grocery_list_product
+    #   product.quantity + 1
+    # else
+      #else create new
+      @grocery_list.save
       redirect_to products_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
     end
   end
