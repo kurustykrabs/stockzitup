@@ -22,9 +22,7 @@
   </tbody>
 </table>
 <br>
-
-#display sum of (products * quantity) here
-<%# Your total list of products is: RM<%#= item.total %> %>
+Your total list of products is: RM<%= @grocery_list.subtotal %>
 
 <br>
     <%= link_to "Back to grocery list", grocery_lists_path %>
