@@ -26,7 +26,7 @@
       <td><%= product.price %></td>
 
       <%= form_with model: product.grocery_list_products.build do |f| %>
-      <td><%#= form_with model: @grocery_list_product do |f| %></td>
+          <%= f.hidden_field :category_id, value: @category.id %>
           <%= f.hidden_field :product_id, value: product.id %>
       <td><%= f.number_field :quantity, value: 1, min: 1 %></td>
       <td><%= f.select :grocery_list_id, options_from_collection_for_select(current_user.grocery_lists, :id, :name), { :prompt => "--Select one--"} %></td>
