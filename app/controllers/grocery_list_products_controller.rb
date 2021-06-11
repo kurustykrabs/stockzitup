@@ -26,9 +26,9 @@ class GroceryListProductsController < ApplicationController
         @grocery_list.grocery_list_products.create(grocery_list_product_params)
     #if product already exist in the grocery list, update
       if @grocery_list.save
-        redirect_to products_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
+        redirect_to category_url, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
       else
-        redirect_to products_path
+        redirect_to category_url, notice: "Added product to list"
       end
     end
   end
