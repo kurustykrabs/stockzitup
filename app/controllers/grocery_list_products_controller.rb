@@ -17,15 +17,19 @@ class GroceryListProductsController < ApplicationController
 
   def create
     @grocery_list = GroceryList.find(params[:grocery_list_product][:grocery_list_id])
-    @grocery_list.grocery_list_products.create(grocery_list_product_params)
+    # @grocery_list.grocery_list_products.create(grocery_list_product_params)
+      check_product_existence = @grocery_list.grocery_list_products.find_by_product_id(params[:grocery_list_product][:product_id])
+
+      if check_product_existence
+        check_product_existence.update(quantity: check_product_existence.quantity + params[:grocery_list_product][:quantity].to_i)
+      else
+        @grocery_list.grocery_list_products.create(grocery_list_product_params)
     #if product already exist in the grocery list, update
-    if
-      # product_id.grocery_list_product
-    #   product.quantity + 1
-    # else
-      #else create new
-      @grocery_list.save
-      redirect_to products_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
+      if @grocery_list.save
+        redirect_to products_path, notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
+      else
+        redirect_to products_path
+      end
     end
   end
 

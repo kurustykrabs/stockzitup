@@ -23,6 +23,8 @@
       <% if current_user && current_user.superadmin_role? %>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create product', new_product_path) %></button>
       <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button>
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Check out recipes', spoonaculars_path) %></button>
+
       <% end %>
       <%# if user_signed_in? %>
       <!-- <button class="btn btn-outline-success me-2 type="button"><%#= link_to('Create my grocery list', new_grocery_list_path) %></button> -->
