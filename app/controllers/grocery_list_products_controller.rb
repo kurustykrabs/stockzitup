@@ -29,9 +29,16 @@ class GroceryListProductsController < ApplicationController
       if @grocery_list.save || check_product_existence.save
         redirect_to category_path(@category), notice: "Added product to list" #render back on the same product page to let user choose another product to add to list
       else
-        redirect_to category_path(@category), notice: "Added product to list"
+        redirect_to category_path(@category), notice: "An error has occured"
       end
     end
+
+#deletes the whole products in the grocery list including the grocery list itself
+  def destroy
+    @grocery_list_products = GroceryListProduct.find(params[:id])
+    @grocery_list_products.destroy
+      redirect_to grocery_list_path(@grocery_list), notice: 'Product deleted'
+  end
 
   private
 

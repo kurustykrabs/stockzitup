@@ -1,13 +1,1 @@
-<%= form_for @grocery_list_product.new do |f| %>
-<%= f.label :product %>
-<%= f.select :product_id, options_from_collection_for_select(Product.all, :id, :name), { :prompt => "--Select one--" } %>
 
-<%= f.submit 'Add product to list' %>
-
-
-
-
-
-<% end %>
-<%# <%= f.text_field :name, placeholder:'Name of your grocery list' %> %>
-<%# <%= f.date_field :date %> %>
