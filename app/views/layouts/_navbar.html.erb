@@ -8,7 +8,10 @@
     <nav class="navbar fixed-bottom navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand">
+          <% if current_user && current_user.superadmin_role? %>
+          <%= link_to "Admin", "https://whispering-atoll-46703.herokuapp.com/admin",target: :_blank %>
           <%= link_to('Show products', products_path) %>
+          <% end %>
           <% if user_signed_in? %>
           <button type="button" class="btn btn-outline-info"><%= link_to('StockItUp!', root_path) %></button>
           <%= link_to('Edit registration', edit_user_registration_path) %>
