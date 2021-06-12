@@ -13,9 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- @import "login.scss";
-
  .btn-group button {
    display: inline;
    background-color: #FFFFFF; /* background */
