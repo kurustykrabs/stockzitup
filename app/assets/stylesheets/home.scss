@@ -61,12 +61,12 @@
   position:absolute;
   top:0;
   left:0;
-  width:100%;
+  width:85%;
   height:100%;
-  background-color:rgba(31,148,255,0.75);
+  background-color:rgba(7,49,84,0.75);
   transition:opacity 0.10s ease-in;
-  opacity:0;
-  padding-top:80px;
+  opacity:1; //opacity of box
+  padding-top:100px;
   color:#ffffff;
   text-shadow:1px 1px 1px rgba(0,0,0,0.15);
 }
@@ -84,7 +84,7 @@
 .team-grid .item .title {
   text-transform:uppercase;
   font-weight:bold;
-  color:#bbd8fb;
+  color:#ffffff;
   letter-spacing:2px;
   font-size:10px;
   margin-bottom:20px;

@@ -1,29 +1,57 @@
-<p>Your list of products</p>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<table>
+<body style="background-color:#b9ecef;">
+  <div class="team-grid">
+      <!-- <div class="container"> -->
+<h1>Your list of products</h1>
+
+<table class="center">
   <thead>
     <tr>
       <th>Product</th>
       <th>Quantity</th>
       <th>Price per unit (RM)</th>
       <th></th>
-      <th colspan="3"></th>
+      <th>🗸</th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @grocery_list_product.each do |item| %>
       <tr>
         <td><%= item.product.name %></td>
         <td><%= item.quantity %></td>
         <td><%= item.unit_price %></td>
         <td><%= item.total %></td>
-        <td><%#= link_to image_tag("delete icon.png", width: 30), grocery_list_path(@grocery_list), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+        <td><div class="form-group">
+            <div class="col-md-5">
+                <div class="checkbox">
+                    <input type="checkbox" name="packersOff" id="packers" value="1"/>
+                </div>
+             </div>
+        </div></td>
+        <%#= link_to image_tag("delete icon.png", width: 30), grocery_list_path(@grocery_list), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
         <% end %>
   </tbody>
 </table>
+</div>
 <br>
-Your total list of products is: RM<%= @grocery_list.subtotal %>
+<p style="font-weight: bolder;">Your total list of product(s) is: RM<%= @grocery_list.subtotal %></p>
 
-<br>
-    <%= link_to "Back to grocery list", grocery_lists_path %>
+<%= link_to "Back to grocery list", grocery_lists_path, class: 'btn btn-outline-info' %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
