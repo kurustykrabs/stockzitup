@@ -8,27 +8,41 @@
     <nav class="navbar fixed-bottom navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand">
+          <div class="container">
+            <div class="row">
+              <div class="col">
           <% if current_user && current_user.superadmin_role? %>
-          <%= link_to "Admin", "https://whispering-atoll-46703.herokuapp.com/admin",target: :_blank %>
-          <%= link_to('Show products', products_path) %>
+          <button type="button" class="btn btn-outline-info"><%= link_to "Admin", "https://whispering-atoll-46703.herokuapp.com/admin",target: :_blank %></button>
+          </div>
+          <div class="col">
+          <button type="button" class="btn btn-outline-info"><%= link_to('Show products', products_path) %></button>
+          </div>
           <% end %>
+          <div class="col">
           <% if user_signed_in? %>
           <button type="button" class="btn btn-outline-info"><%= link_to('StockItUp!', root_path) %></button>
-          <%= link_to('Edit registration', edit_user_registration_path) %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          <p>Logged in: <%= current_user.email %></p>
+          </div>
+          <div class="col">
+          <button type="button" class="btn btn-outline-info"><%= link_to('Edit registration', edit_user_registration_path) %></button>
+          </div>
+          <div class="col">
+          <button type="button" class="btn btn-outline-info"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
+          </div>
+          <div class="col">
+          <p><%= current_user.email %></p>
+          </div>
           <%# else %>
           <%#= link_to('Register', new_user_registration_path)  %>
           <%#= link_to('Login', new_user_session_path)  %>
           <% end %>
+        </div>
+          </div>
+          </div>
         </a>
       </div>
     </nav>
   </body>
 </html>
-
-
-
 <!-- <nav class="navbar fixed-bottom navbar-light bg-light"> -->
   <!-- <div class="container-fluid"> -->
     <!-- <a class="navbar-brand"> -->
