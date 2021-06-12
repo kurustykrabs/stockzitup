@@ -2,119 +2,95 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  margin: 0;
-  font-size: 28px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+  body {
+    margin: 0;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-.header {
-  background-color: #f1f1f1;
-  padding: 30px;
-  text-align: center;
-}
+  .header {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+  }
 
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-}
+  #navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
 
-#navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
 
-#navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
+  #navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
 
-#navbar a.active {
-  background-color: #04AA6D;
-  color: white;
-}
+  #navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
 
-.content {
-  padding: 16px;
-}
+  .content {
+    padding: 16px;
+  }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
-.sticky + .content {
-  padding-top: 60px;
-}
-</style>
+  .sticky + .content {
+    padding-top: 60px;
+  }
+  </style>
 </head>
-<body>
-<nav class="navbar fixed-top navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">
-      <% if user_signed_in? %>
-      <%= link_to('StockItUp!', root_path) %>
-      <%= link_to('Edit registration', edit_user_registration_path) %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      <p>Logged in: <%= current_user.email %></p>
-      <%# else %>
-      <%#= link_to('Register', new_user_registration_path)  %>
-      <%#= link_to('Login', new_user_session_path)  %>
-      <% end %>
 
-
-
-
-      <div id="navbar">
-        <a class="active" href="javascript:void(0)">Home</a>
-        <a href="javascript:void(0)">News</a>
-        <a href="javascript:void(0)">Contact</a>
+  <body>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <% if user_signed_in? %>
+          <%= link_to('StockItUp!', root_path) %>
+          <%= link_to('Show products', products_path) %>
+          <%= link_to('Edit registration', edit_user_registration_path) %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <p>Logged in: <%= current_user.email %></p>
+          <%# else %>
+          <%#= link_to('Register', new_user_registration_path)  %>
+          <%#= link_to('Login', new_user_session_path)  %>
+          <% end %>
+        </a>
       </div>
-
-      <div class="content">
-        <h3>Sticky Navigation Example</h3>
-      </div>
-
-      <script>
-      window.onscroll = function() {myFunction()};
-
-      var navbar = document.getElementById("navbar");
-      var sticky = navbar.offsetTop;
-
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-      </script>
-
-      </body>
-      </html>
+    </nav>
+  </body>
+</html>
 
 
-    </a>
-  </div>
-</nav>
 
-<nav class="navbar fixed-bottom navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">
+<!-- <nav class="navbar fixed-bottom navbar-light bg-light"> -->
+  <!-- <div class="container-fluid"> -->
+    <!-- <a class="navbar-brand"> -->
 
-      <% if current_user && current_user.superadmin_role? %>
-      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create product', new_product_path) %></button>
-      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button>
-      <button class="btn btn-outline-success me-2" type="button"><%= link_to('Check out recipes', spoonaculars_path) %></button>
-
-      <% end %>
+      <%# <% if current_user && current_user.superadmin_role? %> %>
+      <%# <!-- <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create product', new_product_path) %></button> --> %>
+      <%# <!-- <button class="btn btn-outline-success me-2" type="button"><%= link_to('Create category', new_category_path) %></button> --> %>
+      <%# <!-- <button class="btn btn-outline-success me-2" type="button"><%= link_to('Check out recipes', spoonaculars_path) %></button> --> %>
+      <%# <!-- <button class="btn btn-outline-success me-2" type="button"><%= link_to('Check out all your products you have listed', all_user_products_path) %></button> --> %>
+<!-- </a> -->
+<!-- </div> -->
+<!-- </nav -->
+      <%# <% end %> %>
       <%# if user_signed_in? %>
       <!-- <button class="btn btn-outline-success me-2 type="button"><%#= link_to('Create my grocery list', new_grocery_list_path) %></button> -->
       <!-- <button class="btn btn-outline-success me-2 type="button"><%#= link_to('Show my grocery list', grocery_lists_path) %></button> -->
@@ -125,6 +101,6 @@ body {
       <!-- <button class="btn btn-outline-success me-2" type="button"><%#= link_to('Where is?', "https://stockzitup.glitch.me/", target: :_blank) %></button> -->
       <!-- <button class="btn btn-outline-success me-2" type="button"><%#= link_to('Where is?', ar_path(current_user)) %></button> -->
       <%# end %>
-    </a>
-  </div>
-</nav>
+    <!-- </a> -->
+  <!-- </div> -->
+<!-- </nav> -->

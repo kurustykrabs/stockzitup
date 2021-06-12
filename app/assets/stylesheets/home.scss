@@ -1,20 +1,14 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-//  body {
-//   top: 500px;
-//   left: 100px;
-//   padding: 100px;
-//   display: inline-block;
-//   background: #E3F2FD;
-// }
-
+// padding for overall page
 .team-grid {
+  padding-top: 130px;
   color:#313437;
-  background-color:#fff;
+  background: #b9ecef;
+  background-size: 100% 100%;
 }
-
+// text colour or head over
 .team-grid p {
   color:#7d8285;
 }
@@ -22,7 +16,7 @@
 .team-grid h2 {
   font-weight:bold;
   margin-bottom:40px;
-  padding-top:70px;
+  padding-top:10px;
   color:inherit;
 }
 
@@ -35,7 +29,7 @@
 }
 
 .team-grid .intro {
-  font-size:16px;
+  font-size:20px;
   max-width:500px;
   margin:0 auto;
 }
@@ -70,15 +64,15 @@
   width:100%;
   height:100%;
   background-color:rgba(31,148,255,0.75);
-  transition:opacity 0.15s ease-in;
+  transition:opacity 0.10s ease-in;
   opacity:0;
   padding-top:80px;
-  color:#fff;
+  color:#ffffff;
   text-shadow:1px 1px 1px rgba(0,0,0,0.15);
 }
 
 .team-grid .item:hover .cover {
-  opacity:1;
+  opacity:5;
 }
 
 .team-grid .item .name {

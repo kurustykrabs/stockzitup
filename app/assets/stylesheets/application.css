@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "login.scss";
+
  .btn-group button {
    display: inline;
    background-color: #FFFFFF; /* background */
@@ -24,3 +27,5 @@
    cursor: pointer; /* Pointer/hand icon */
    float: left; /* Float the buttons side by side */
  }
+
+body{ margin:0 auto; }

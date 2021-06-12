@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :grocery_lists
   resources :grocery_list_products
   resources :spoonaculars
+  resources :all_user_products
 end
