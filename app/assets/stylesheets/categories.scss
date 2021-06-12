@@ -1,3 +1,62 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+table, th, td {
+	padding: 5px;
+  border: 1px white solid;
+}
+
+table {
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+td {
+  height: 100px;
+  width: 100px;
+  // text-align: center;
+  vertical-align: middle;
+}
+
+tr {
+  background-color: white;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-left: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+.btn-outline-info {
+  padding-left: 20px;
+}
+
+.team-grid {
+  padding-top: 130px;
+  color:#313437;
+  background: #b9ecef;
+  background-size: 100% 100%;
+}
+
+.team-grid .blocks {
+  padding:50px 0;
+}
+
+.team-grid .item {
+  margin-bottom:30px;
+}
